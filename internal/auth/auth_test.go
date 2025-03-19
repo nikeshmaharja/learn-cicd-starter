@@ -14,10 +14,10 @@ func TestGetAPIKey(t *testing.T) {
 		wantErr error
 	}{
 		{
-			///name:    "No authorization header",
-			//headers: http.Header{},
-			///want:    "",
-			//wantErr: ErrNoAuthHeaderIncluded,
+			name:    "No authorization header",
+			headers: http.Header{},
+			want:    "",
+			wantErr: ErrNoAuthHeaderIncluded,
 		},
 		{
 			name: "Malformed authorization header (no ApiKey prefix)",
