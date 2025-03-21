@@ -18,14 +18,14 @@ import (
 	_ "github.com/tursodatabase/libsql-client-go/libsql"
 )
 
-type apiConfig struct  {
+type apiConfig struct {
 	DB *database.Queries
 }
 
 //go:embed static/*
 var staticFiles embed.FS
 
-func main(){
+func main() {
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Printf("warning: assuming default configuration. .env unreadable: %v", err)
@@ -56,14 +56,14 @@ func main(){
 
 	router := chi.NewRouter()
 
-	router.Use(cors.Handler(cors.Options  {
+	router.Use(cors.Handler(cors.Options{
 		AllowedOrigins:   []string{"https://*", "http://*"},
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowedHeaders:   []string{"*"},
 		ExposedHeaders:   []string{"Link"},
 		AllowCredentials: false,
 		MaxAge:           300,
-	} ))
+	}))
 
 	router.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		f, err := staticFiles.Open("static/index.html")
