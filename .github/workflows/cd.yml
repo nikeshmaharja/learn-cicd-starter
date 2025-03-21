@@ -30,3 +30,6 @@ jobs:
 
         - name: 'Use gcloud CLI'
           run: 'gcloud info'
+        
+        - name: 'build docker image'
+          run: 'gcloud builds submit --tag REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG .'
