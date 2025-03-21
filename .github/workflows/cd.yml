@@ -32,4 +32,4 @@ jobs:
           run: 'gcloud info'
         
         - name: 'build docker image'
-          run: 'gcloud builds submit --tag REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG .'
+          run: "gcloud builds submit --tag '${{ secrets.REGION }}-docker.pkg.dev/${{secrets.PROJECT_ID}}/${{secrets.REPOSITORY}}/${{secrets.IMAGE}}:${{secrets.TAG}}' ."
