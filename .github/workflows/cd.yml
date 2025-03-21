@@ -36,4 +36,4 @@ jobs:
           run: "gcloud builds submit --tag '${{ secrets.REGION }}-docker.pkg.dev/${{secrets.PROJECT_ID}}/${{secrets.REPOSITORY}}/${{secrets.IMAGE}}:${{secrets.TAG}}' ."
     
         - name: 'deploy to cloud run'
-          run: "gcloud run deploy '${{secrets.SERVICE}}' --image '${{ secrets.REGION }}-docker.pkg.dev/${{secrets.PROJECT_ID}}/${{secrets.REPOSITORY}}/${{secrets.IMAGE}}:${{secrets.TAG}}' --platform managed --region '${{secrets.REGION}}' --allow-unauthenticated --project ${{PROJECT_ID}} --max-instances=4"
+          run: "gcloud run deploy '${{secrets.SERVICE}}' --image '${{ secrets.REGION }}-docker.pkg.dev/${{secrets.PROJECT_ID}}/${{secrets.REPOSITORY}}/${{secrets.IMAGE}}:${{secrets.TAG}}' --platform managed --region '${{secrets.REGION}}' --allow-unauthenticated --project ${{secrets.PROJECT_ID}} --max-instances=4"
